@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            margin-top: 10px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Guess the Number of Files!</h1>
+    <p>Try to guess how many files are in the directory.</p>
+    <input type="number" id="guess" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Submit</button>
+    <p id="message"></p>
+
+    <script>
+        // Simulated number of files in a directory
+        const totalFiles = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
+
+        function checkGuess() {
+            let userGuess = document.getElementById("guess").value;
+            let message = document.getElementById("message");
+
+            if (userGuess == totalFiles) {
+                message.innerHTML = "🎉 Correct! You guessed the number of files!";
+                message.style.color = "green";
+            } else if (userGuess < totalFiles) {
+                message.innerHTML = "📉 Too low! Try again.";
+                message.style.color = "red";
+            } else {
+                message.innerHTML = "📈 Too high! Try again.";
+                message.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
